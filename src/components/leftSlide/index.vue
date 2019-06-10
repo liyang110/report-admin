@@ -8,7 +8,7 @@
         class="menu-box"
         theme="dark"
         router
-        :default-openeds="['/user','/image','/keyword','/report']"
+        :default-openeds="['/user','/image','/keyword','/report','/access']"
         :default-active="$route.path"
         >
         <div
@@ -114,18 +114,30 @@
             title: "主页",
             path: "/home",
             icon: "fa-home"
-          }, {
-            title: "用户",
-            path: "/user",
-            icon: "fa-group",
+          }, 
+          // {
+          //   title: "用户",
+          //   path: "/user",
+          //   icon: "fa-group",
+          //   child: [{
+          //     title: "渠道",
+          //     path: "/user/platform"
+          //   }, {
+          //     title: "用户终端",
+          //     path: "/user/app"
+          //   }]
+          // }, 
+           {
+            title: "接入概况",
+            path: "/access",
+            icon: "fa-file-image-o",
             child: [{
-              title: "渠道",
-              path: "/user/platform"
-            }, {
-              title: "用户终端",
-              path: "/user/app"
-            }]
-          }, {
+              title: "接入概况",
+              path: "/access/profile"
+            }
+            ]
+          }, 
+          {
             title: "图库",
             path: "/image",
             icon: "fa-file-image-o",
@@ -144,26 +156,46 @@
             title: "词库",
             path: "/keyword",
             icon: "fa-file-word-o",
-            child: [{
+            child: [ {
+              title: "全部搜索",
+              path: "/keyword/all"
+            },{
               title: "热搜",
               path: "/keyword/hot"
             }, {
               title: "屏蔽",
               path: "/keyword/sensitive"
+            },{
+              title: "停用词",
+              path: "/keyword/stop"
             }]
-          }, {
+          },  {
+            title: "标签库",
+            path: "/tag",
+            icon: "fa-file-word-o",
+            child: [ {
+              title: "搜索词",
+              path: "/tag/search"
+            },{
+              title: "nlp关联",
+              path: "/tag/nlp"
+            },{
+              title: "ocr",
+              path: "/tag/ocr"
+            },{
+              title: "其他",
+              path: "/tag/other"
+            }]
+          },{
             title: "数据统计",
             path: "/report",
             icon: "fa-bar-chart-o",
             child: [{
               title: "接入数据",
               path: "/report/base"
-            }, {
-              title: "图片下载",
-              path: "/report/image"
-            }, {
-              title: "关键词统计",
-              path: "/report/api"
+            },{
+              title: "广告转化（Beta）",
+              path: "/report/ad"
             }]
           }]
         }

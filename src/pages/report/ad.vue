@@ -3,7 +3,7 @@
     <div class="panel-body">
       <template>
         <el-tabs v-model="activeName">
-          <el-tab-pane label="SDK统计" name="sdk">
+          <el-tab-pane label="SDK广告转化" name="sdk">
             <el-date-picker
               v-model="dateValue"
               type="daterange"
@@ -19,62 +19,42 @@
               element-loading-text="拼命加载中"
               style="width: 100%;margin: 0 auto;">
               <el-table-column
-                prop="write_time"
+                prop="write_date"
                 label="时间"
                 width="116">
+              </el-table-column>
+              <el-table-column
+                prop="np_id"
+                label="图片id"
+                width="200">
+              </el-table-column>
+              <el-table-column
+                prop="store_url"
+                label="图片"
+                width="150">
                 <template scope="props">
-                  <span v-text="date_format(props.row.write_time)"></span>
+                  <img v-bind:src="props.row.store_url"/>
                 </template>
               </el-table-column>
               <el-table-column
-                prop="new_device_count"
-                label="新增接入设备"
+                prop="show_count"
+                label="展示次数"
                 width="100">
               </el-table-column>
               <el-table-column
-                prop="device_count"
-                label="累积设备"
-                width="150">
-              </el-table-column>
-              <el-table-column
-                prop="new_app_count"
-                label="新增app"
+                prop="send_count"
+                label="发送次数"
                 width="100">
               </el-table-column>
               <el-table-column
-                prop="app_reg_count"
-                label="app接入数"
+                prop="promotion_type"
+                label="链接形式"
                 width="100">
               </el-table-column>
               <el-table-column
-                prop="active_app_count"
-                label="活跃app数"
-                width="100">
-              </el-table-column>
-              <el-table-column
-                prop="api_call_count"
-                label="接口调用数"
-                width="100">
-              </el-table-column>
-              <el-table-column
-                prop="new_active_device_count"
-                label="新增活跃设备数"
-                width="100">
-              </el-table-column>
-              <el-table-column
-                prop="active_device_count"
-                label="活跃设备数"
-                width="100">
-              </el-table-column>
-              <el-table-column
-                prop="package_down_count"
-                label="表情包下载"
-                width="100">
-              </el-table-column>
-              <el-table-column
-                prop="emoji_send_count"
-                label="表情发送"
-                width="100">
+                prop="promotion_url"
+                label="链接地址"
+                width="500">
               </el-table-column>
             </el-table>
             <bottom-tool-bar>
@@ -89,67 +69,7 @@
               </div>
             </bottom-tool-bar>
           </el-tab-pane>
-          <el-tab-pane label="API统计" name="api">
-            <el-date-picker
-              v-model="apiDateValue"
-              type="daterange"
-              :editable="false"
-              placeholder="选择日期范围"
-              :format="dateFormat"
-              @change="get_api_table_data">
-            </el-date-picker>
-            <el-select v-model="value" placeholder="请选择" @change="select_change">
-              <el-option
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value">
-              </el-option>
-            </el-select>
-            <el-table
-              :data="api_table_data"
-              v-loading="api_load_data"
-              border
-              element-loading-text="拼命加载中"
-              style="width: 50%">
-              <el-table-column
-                prop="write_date"
-                label="时间"
-                width="116">
-              </el-table-column>
-              <el-table-column
-                prop="request_count"
-                label="接口调用数"
-                width="200">
-              </el-table-column>
-              <el-table-column
-                prop="apiVersion"
-                label="接口版本"
-                width="120">
-                <template scope="props">
-                  <span>1.3</span>
-                </template>
-              </el-table-column>
-              <el-table-column
-                prop="apiStatus"
-                label="接口服务"
-                width="120">
-                <template scope="props">
-                  <span class="fa fa-circle" style="color: green"></span>
-                </template>
-              </el-table-column>
-            </el-table>
-            <bottom-tool-bar>
-              <div slot="page">
-                <el-pagination
-                  @current-change="apiHandleCurrentChange"
-                  :current-page="apiCurrentPage"
-                  :page-size="15"
-                  layout="total, prev, pager, next"
-                  :total="apiTotal">
-                </el-pagination>
-              </div>
-            </bottom-tool-bar>
+          <el-tab-pane label="API广告转化" name="api" disabled>
           </el-tab-pane>
         </el-tabs>
       </template>
@@ -217,7 +137,7 @@
       get_table_data(val) {
         this.tempDateValue = val
         this.load_data = true
-        this.$fetch.api_report.sdkBase({
+        this.$fetch.api_ad.sdk({
           dateRange: val,
           page: this.currentPage,
           size: this.length,

@@ -13,7 +13,7 @@
                 <div class="grid-content bg-purple">
                   <span class="board-span">SDK - 累积接入App数</span>
                   <div class="data-content">
-                    <span class="data-span">{{this.toThousands(this.sdk_data.appRegCount)}}</span>
+                    <span class="data-span">{{this.toThousands(this.sdk_data.app_reg_count)}}</span>
                   </div>
                 </div>
               </el-col>
@@ -21,7 +21,7 @@
                 <div class="grid-content bg-purple">
                   <span class="board-span">SDK - 日接口调用数</span>
                   <div class="data-content">
-                    <span class="data-span">{{this.toThousands(this.sdk_data.apiCallCount)}}</span>
+                    <span class="data-span">{{this.toThousands(this.sdk_data.api_call_count)}}</span>
                   </div>
                 </div>
               </el-col>
@@ -29,7 +29,7 @@
                 <div class="grid-content bg-purple">
                   <span class="board-span">SDK - 日图片发送量</span>
                   <div class="data-content">
-                    <span class="data-span">{{this.toThousands(this.sdk_data.emojiSendCount)}}</span>
+                    <span class="data-span">{{this.toThousands(this.sdk_data.emoji_send_count)}}</span>
                   </div>
                 </div>
               </el-col>
@@ -37,7 +37,7 @@
                 <div class="grid-content bg-purple">
                   <span class="board-span">SDK - 累积用户数</span>
                   <div class="data-content">
-                    <span class="data-span">{{this.toThousands(this.sdk_data.deviceCount)}}</span>
+                    <span class="data-span">{{this.toThousands(this.sdk_data.device_count)}}</span>
                   </div>
                 </div>
               </el-col>
@@ -47,7 +47,7 @@
                 <div class="grid-content bg-purple">
                   <span class="board-span">SDK - 日活跃用户数</span>
                   <div class="data-content">
-                    <span class="data-span">{{this.toThousands(this.sdk_data.activeDeviceCount)}}</span>
+                    <span class="data-span">{{this.toThousands(this.sdk_data.active_device_count)}}</span>
                   </div>
                 </div>
               </el-col>
@@ -63,7 +63,7 @@
                 <div class="grid-content bg-purple">
                   <span class="board-span">API - 日接口调用数</span>
                   <div class="data-content">
-                    <span class="data-span">{{this.toThousands(this.api_data.TotalCount)}}</span>
+                    <span class="data-span">{{this.toThousands(this.api_data.request_count)}}</span>
                   </div>
                 </div>
               </el-col>
@@ -236,12 +236,12 @@
             this.sdk_data = sdkReport
             this.api_data = apiData
             this.image_data = imageData
-            this.sdk_chart_data.labels = sdkChartData.label
-            this.sdk_chart_data.datasets.data = sdkChartData.data
-            this.api_chart_data.labels = apiChartData.label
-            this.api_chart_data.datasets.data = apiChartData.data
-            this.temp_sdk_chart_data = this.sdk_chart_data
-            this.temp_api_chart_data = this.api_chart_data
+            // this.sdk_chart_data.labels = sdkChartData.label
+            // this.sdk_chart_data.datasets.data = sdkChartData.data
+            // this.api_chart_data.labels = apiChartData.label
+            // this.api_chart_data.datasets.data = apiChartData.data
+            // this.temp_sdk_chart_data = this.sdk_chart_data
+            // this.temp_api_chart_data = this.api_chart_data
 //            console.log(this.temp_sdk_chart_data)
 //            console.log(this.temp_api_chart_data)
           })

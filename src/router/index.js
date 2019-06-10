@@ -27,6 +27,11 @@ import ipComponent from 'pages/image/ip'
 import globalComponent from 'pages/image/global'
 //keyword hot
 import hotComponent from 'pages/keyword/hot'
+
+import allkeywordComponent from 'pages/keyword/search'
+
+import stopComponent from 'pages/keyword/stop'
+
 //keyword sensitive
 import sensitiveComponent from 'pages/keyword/sensitive'
 //base report
@@ -43,6 +48,15 @@ import imageReportComponent from 'pages/report/image'
 import imageGradeReportComponent from 'pages/report/imagegrade'
 
 import apiReportComponent from 'pages/report/api'
+
+import accessProfileComponent from 'pages/access/profile'
+
+import adReportComponent from 'pages/report/ad'
+
+import searchTagComponent from 'pages/tag/search'
+import nlpTagComponent from 'pages/tag/nlp'
+import ocrTagComponent from 'pages/tag/ocr'
+import otherTagComponent from 'pages/tag/other'
 
 Vue.use(VueRouter)
 
@@ -88,6 +102,14 @@ const routes = [{
       auth: true
     }
   }, {
+    path: '/access/profile',
+    name: 'profile',
+    component: accessProfileComponent,
+    meta: {
+      title: "接入概况",
+      auth: true
+    }
+  },  {
     path: '/image/original',
     name: 'original',
     component: originalComponent,
@@ -128,9 +150,34 @@ const routes = [{
       auth: true
     }
   }, {
+    path: '/keyword/all',
+    name: 'allKeyword',
+    component: allkeywordComponent,
+    meta: {
+      title: "全部搜索",
+      auth: true
+    }
+  },{
+    path: '/keyword/stop',
+    name: 'stopKeyword',
+    component: stopComponent,
+    meta: {
+      title: "停用词",
+      auth: true
+    }
+  },  {
     path: '/report/base',
     name: 'reportBase',
     component: baseReportComponent,
+    meta: {
+      title: "接入统计",
+      auth: true
+    }
+  },
+  {
+    path: '/report/ad',
+    name: 'reportAd',
+    component: adReportComponent,
     meta: {
       title: "接入统计",
       auth: true
@@ -189,6 +236,38 @@ const routes = [{
     component: imageGradeReportComponent,
     meta: {
       title: "图片下载统计",
+      auth: true
+    }
+  }, {
+    path: '/tag/search',
+    name: 'searchTag',
+    component: searchTagComponent,
+    meta: {
+      title: "搜索词",
+      auth: true
+    }
+  },{
+    path: '/tag/nlp',
+    name: 'nlpTag',
+    component: nlpTagComponent,
+    meta: {
+      title: "nlp关联",
+      auth: true
+    }
+  },{
+    path: '/tag/ocr',
+    name: 'ocrTag',
+    component: ocrTagComponent,
+    meta: {
+      title: "OCR",
+      auth: true
+    }
+  },{
+    path: '/tag/other',
+    name: 'otherTag',
+    component: otherTagComponent,
+    meta: {
+      title: "其他",
       auth: true
     }
   }]
